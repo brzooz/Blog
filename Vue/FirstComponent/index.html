@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+
+        Vue.component('greetings-component', {
+            props: ['name'],
+            template: '<p>Hello {{ name }}</p>'
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                names: ['Jakub', 'Dawid', 'Andrzej']
+            }
+        })
+    }
+</script>
+
+<div id="app">
+    <div v-for='name in names'>
+        <greetings-component :name='name'></greetings-component>
+    </div>
+</div>
