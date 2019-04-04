@@ -1,0 +1,50 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: false,
+                value: 0
+            },
+            computed: {
+                square: function () {
+                    return this.value * this.value;
+                }
+            },
+            watch: {
+                value: function (val) {
+                    if (val % 2 == 0) {
+                        console.log("Parzysta");
+                    }
+                    else {
+                        console.log("Nieparzysta");
+                    }
+                }
+            }
+        })
+    }
+</script>
+
+<div id="app">
+
+    <!-- v-if -->
+
+    <div v-if="show">
+        Show
+    </div>
+    <div v-if="!show">
+        Hide
+    </div>
+
+    <button v-on:click="show=!show">Show/Hide</button>
+
+    <br>
+
+    <!-- Computed Properties -->
+
+    <input type="text" v-model="value">
+
+    {{square}}
+
+</div>
